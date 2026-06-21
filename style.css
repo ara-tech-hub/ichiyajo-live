@@ -507,6 +507,21 @@ main,
   line-height: 1.8;
 }
 
+.benefit-heading {
+  margin: 18px 0 0 !important;
+  color: var(--paper) !important;
+  font-weight: 950;
+}
+
+.ticket-benefits {
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.ticket-benefits li {
+  font-size: 14px;
+}
+
 .ticket-cta {
   display: grid;
   gap: 18px;
@@ -561,8 +576,21 @@ main,
 
 .access-section {
   background:
-    linear-gradient(90deg, rgba(3, 2, 4, 0.98), rgba(3, 2, 4, 0.78)),
-    url("./ichiyajo-other.jpeg") center / cover;
+    linear-gradient(90deg, rgba(3, 2, 4, 0.5) 0 34%, rgba(3, 2, 4, 0.14) 64%, rgba(3, 2, 4, 0.02) 100%),
+    url("./ichiyajo-other.jpeg") 78% center / cover;
+}
+
+.access-section .two-column {
+  grid-template-columns: minmax(0, 680px);
+}
+
+.access-section .section-copy h2 {
+  max-width: 640px;
+  font-size: clamp(40px, 7vw, 82px);
+}
+
+.access-section .section-copy {
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.86);
 }
 
 .map-card {
@@ -823,6 +851,12 @@ main,
   margin-bottom: 20px;
 }
 
+.goods-note {
+  margin-top: 12px !important;
+  color: var(--gold-bright) !important;
+  font-weight: 800;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -884,7 +918,7 @@ main,
   }
 
   .ticket-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .ticket-cta {
@@ -961,6 +995,18 @@ main,
 
   .section {
     padding-block: 68px;
+  }
+
+  .access-section {
+    background:
+      linear-gradient(180deg, rgba(3, 2, 4, 0.54) 0 42%, rgba(3, 2, 4, 0.26) 100%),
+      linear-gradient(90deg, rgba(3, 2, 4, 0.56) 0 44%, rgba(3, 2, 4, 0.08) 100%),
+      url("./ichiyajo-other.jpeg") 70% center / cover;
+  }
+
+  .access-section .section-copy h2 {
+    max-width: 78%;
+    font-size: clamp(38px, 12vw, 62px);
   }
 
   .button {
