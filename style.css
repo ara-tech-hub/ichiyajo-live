@@ -157,9 +157,9 @@ main,
   z-index: -3;
   background:
     radial-gradient(circle at 78% 28%, rgba(255, 227, 154, 0.18), transparent 23%),
-    linear-gradient(90deg, rgba(3, 2, 4, 0.98) 0 36%, rgba(3, 2, 4, 0.72) 54%, rgba(3, 2, 4, 0.22) 76%),
-    linear-gradient(0deg, var(--black), transparent 36%),
-    url("./ichiyajo-hero.jpeg") 76% center / auto 100%;
+    linear-gradient(90deg, rgba(3, 2, 4, 0.95) 0 30%, rgba(3, 2, 4, 0.62) 49%, rgba(3, 2, 4, 0.12) 76%),
+    linear-gradient(0deg, var(--black), transparent 40%),
+    url("./hero-firstview-final.png") center center / cover;
   background-repeat: no-repeat;
   background-color: var(--black);
 }
@@ -478,6 +478,8 @@ main,
   color: var(--red-bright);
   font-size: 12px;
   font-weight: 950;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .ticket-card h3 {
@@ -576,21 +578,54 @@ main,
 
 .access-section {
   background:
-    linear-gradient(90deg, rgba(3, 2, 4, 0.5) 0 34%, rgba(3, 2, 4, 0.14) 64%, rgba(3, 2, 4, 0.02) 100%),
-    url("./ichiyajo-other.jpeg") 78% center / cover;
+    linear-gradient(180deg, rgba(8, 6, 10, 0.96), rgba(3, 2, 4, 0.99)),
+    var(--night);
 }
 
 .access-section .two-column {
-  grid-template-columns: minmax(0, 680px);
+  grid-template-columns: minmax(0, 760px);
 }
 
 .access-section .section-copy h2 {
-  max-width: 640px;
-  font-size: clamp(40px, 7vw, 82px);
+  max-width: 900px;
+  font-size: clamp(40px, 6.2vw, 72px);
+}
+
+.access-title-line {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .access-section .section-copy {
   text-shadow: 0 3px 24px rgba(0, 0, 0, 0.86);
+}
+
+.ticket-photo {
+  position: relative;
+  overflow: hidden;
+  margin: 22px 0 22px;
+  border: 1px solid var(--line-light);
+  border-radius: 8px;
+  background: rgba(8, 6, 10, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.ticket-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 58%, rgba(3, 2, 4, 0.42)),
+    radial-gradient(circle at 80% 18%, rgba(255, 227, 154, 0.12), transparent 28%);
+}
+
+.ticket-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center 42%;
 }
 
 .map-card {
@@ -683,8 +718,11 @@ main,
   background:
     radial-gradient(circle at 22% 22%, rgba(255, 227, 154, 0.16), transparent 26%),
     radial-gradient(circle at 82% 70%, rgba(159, 39, 34, 0.2), transparent 28%),
-    linear-gradient(90deg, rgba(3, 2, 4, 0.94) 0 28%, rgba(3, 2, 4, 0.7) 54%, rgba(3, 2, 4, 0.42) 100%),
-    url("./support-hero.jpeg") center center / cover;
+    linear-gradient(90deg, rgba(3, 2, 4, 0.92) 0 32%, rgba(3, 2, 4, 0.58) 56%, rgba(3, 2, 4, 0.22) 100%),
+    linear-gradient(0deg, var(--black), transparent 44%),
+    url("./support-hero-background-final.png") center center / cover;
+  background-repeat: no-repeat;
+  background-color: var(--black);
 }
 
 .support-hero-shade {
@@ -717,11 +755,53 @@ main,
   line-height: 1.8;
 }
 
+.support-hero-mobile-photo {
+  display: none;
+}
+
 .support-plan-grid,
 .goods-grid {
   display: grid;
   gap: 16px;
   margin-top: 34px;
+}
+
+.goods-heading-layout {
+  display: grid;
+  gap: 26px;
+  align-items: center;
+}
+
+.goods-heading-layout .section-heading {
+  margin: 0;
+}
+
+.goods-heading-photo {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line-light);
+  border-radius: 8px;
+  background: rgba(8, 6, 10, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.goods-heading-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 54%, rgba(3, 2, 4, 0.34)),
+    radial-gradient(circle at 20% 18%, rgba(255, 227, 154, 0.12), transparent 28%);
+}
+
+.goods-heading-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .support-card,
@@ -785,6 +865,12 @@ main,
   gap: 18px;
 }
 
+.support-card .ticket-label {
+  min-width: 118px;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 .support-card h3,
 .goods-card h3 {
   margin: 16px 0 0;
@@ -801,11 +887,12 @@ main,
   flex: 0 0 auto;
   margin: 0;
   color: var(--gold-bright);
-  font-size: clamp(24px, 5vw, 42px);
+  font-size: clamp(24px, 4vw, 38px);
   line-height: 1;
   font-weight: 950;
   text-align: right;
   text-shadow: 0 0 20px rgba(255, 227, 154, 0.22);
+  white-space: nowrap;
 }
 
 .benefit-list {
@@ -939,12 +1026,34 @@ main,
 }
 
 @media (min-width: 1060px) {
-  .support-plan-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .support-card .card-topline {
+    display: grid;
+    grid-template-columns: minmax(118px, 1fr) max-content;
+    align-items: start;
+    gap: 16px;
+  }
+
+  .support-card .ticket-label {
+    min-width: 0;
+  }
+
+  .support-price {
+    font-size: clamp(30px, 2.4vw, 36px);
+  }
+
+  .support-card h3 {
+    max-width: 100%;
+    font-size: clamp(26px, 2.25vw, 32px);
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
 
   .support-card-ruler {
     grid-column: span 2;
+  }
+
+  .goods-heading-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
   }
 
   .goods-grid {
@@ -952,24 +1061,78 @@ main,
   }
 }
 
+@media (min-width: 1280px) {
+  .support-plan-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 759px) {
-  .nav a:not(.nav-cta) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    padding: 10px 14px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 12px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 9px;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .nav a {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 227, 154, 0.24);
+    border-radius: 999px;
+    background: rgba(255, 246, 222, 0.07);
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .nav .nav-cta {
+    order: -1;
+    min-height: 34px;
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold));
   }
 
   .hero {
     align-items: start;
     min-height: auto;
-    padding-top: clamp(310px, 43svh, 420px);
+    padding-top: clamp(360px, 48svh, 490px);
     padding-bottom: 28px;
   }
 
   .hero-image {
     background:
-      radial-gradient(circle at 56% 24%, rgba(255, 227, 154, 0.14), transparent 24%),
-      linear-gradient(180deg, rgba(3, 2, 4, 0.34) 0 36%, rgba(3, 2, 4, 0.62) 55%, rgba(3, 2, 4, 0.98) 74%),
-      linear-gradient(90deg, rgba(3, 2, 4, 0.42), rgba(3, 2, 4, 0.12), rgba(79, 14, 13, 0.22)),
-      url("./ichiyajo-hero.jpeg") 55% -122px / 172% auto;
+      radial-gradient(circle at 72% 34%, rgba(255, 227, 154, 0.12), transparent 25%),
+      linear-gradient(180deg, rgba(3, 2, 4, 0.08) 0 34%, rgba(3, 2, 4, 0.34) 52%, rgba(3, 2, 4, 0.98) 78%),
+      linear-gradient(90deg, rgba(3, 2, 4, 0.72) 0 34%, rgba(3, 2, 4, 0.18) 58%, rgba(79, 14, 13, 0.16) 100%),
+      url("./hero-firstview-final.png") center 132px / auto clamp(480px, 58svh, 640px);
     background-repeat: no-repeat;
     background-color: var(--black);
   }
@@ -999,14 +1162,18 @@ main,
 
   .access-section {
     background:
-      linear-gradient(180deg, rgba(3, 2, 4, 0.54) 0 42%, rgba(3, 2, 4, 0.26) 100%),
-      linear-gradient(90deg, rgba(3, 2, 4, 0.56) 0 44%, rgba(3, 2, 4, 0.08) 100%),
-      url("./ichiyajo-other.jpeg") 70% center / cover;
+      linear-gradient(180deg, rgba(8, 6, 10, 0.96), rgba(3, 2, 4, 0.99)),
+      var(--night);
   }
 
   .access-section .section-copy h2 {
-    max-width: 78%;
-    font-size: clamp(38px, 12vw, 62px);
+    max-width: 100%;
+    font-size: clamp(28px, 7.6vw, 48px);
+  }
+
+  .ticket-photo img {
+    aspect-ratio: 4 / 5;
+    object-position: center 40%;
   }
 
   .button {
@@ -1020,7 +1187,7 @@ main,
 
   .support-hero {
     min-height: auto;
-    padding-top: 128px;
+    padding-top: 168px;
     padding-bottom: 54px;
   }
 
@@ -1028,9 +1195,7 @@ main,
     background:
       radial-gradient(circle at 22% 22%, rgba(255, 227, 154, 0.16), transparent 26%),
       radial-gradient(circle at 82% 70%, rgba(159, 39, 34, 0.2), transparent 28%),
-      linear-gradient(90deg, rgba(3, 2, 4, 0.88) 0 18%, rgba(3, 2, 4, 0.58) 58%, rgba(3, 2, 4, 0.38) 100%),
-      url("./support-hero.jpeg") 50% 20% / auto 100%;
-    background-repeat: no-repeat;
+      linear-gradient(180deg, rgba(3, 2, 4, 0.96), rgba(3, 2, 4, 0.86) 58%, rgba(3, 2, 4, 0.98) 100%);
     background-color: var(--black);
   }
 
@@ -1039,6 +1204,40 @@ main,
     font-size: clamp(28px, 8.7vw, 48px);
     line-height: 1.08;
     white-space: nowrap;
+  }
+
+  .support-hero-mobile-photo {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 20px 0 0;
+    border: 1px solid var(--line-light);
+    border-radius: 8px;
+    background: rgba(8, 6, 10, 0.78);
+    box-shadow: var(--shadow);
+  }
+
+  .support-hero-mobile-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, transparent 62%, rgba(3, 2, 4, 0.32)),
+      radial-gradient(circle at 18% 16%, rgba(255, 227, 154, 0.12), transparent 26%);
+  }
+
+  .support-hero-mobile-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .goods-heading-photo img {
+    aspect-ratio: 16 / 11;
+    object-position: center 46%;
   }
 
   .card-topline {
@@ -1051,7 +1250,33 @@ main,
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 1180px) {
+  .support-hero {
+    align-items: center;
+    padding-top: 132px;
+    padding-bottom: 72px;
+  }
+
+  .support-hero-content .eyebrow {
+    align-self: end;
+  }
+
+  .support-title {
+    max-width: none;
+    font-size: clamp(52px, 4.2vw, 78px);
+    white-space: nowrap;
+  }
+
+  .support-hero-content .hero-actions {
+    max-width: 620px;
+  }
+
+  .mobile-fixed-cta {
+    display: none;
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1179px) {
   .mobile-fixed-cta {
     display: none;
   }
