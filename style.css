@@ -128,6 +128,17 @@ main,
   box-shadow: 0 0 22px rgba(200, 151, 45, 0.24);
 }
 
+.nav-ticket-buy {
+  padding: 10px 16px;
+  color: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(255, 227, 154, 0.28), transparent 44%),
+    linear-gradient(135deg, var(--red-bright), var(--red) 52%, var(--red-deep));
+  border: 1px solid rgba(255, 227, 154, 0.52);
+  border-radius: 999px;
+  box-shadow: 0 0 24px rgba(213, 65, 53, 0.34);
+}
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -155,11 +166,7 @@ main,
 
 .hero-image {
   z-index: -3;
-  background:
-    radial-gradient(circle at 78% 28%, rgba(255, 227, 154, 0.18), transparent 23%),
-    linear-gradient(90deg, rgba(3, 2, 4, 0.95) 0 30%, rgba(3, 2, 4, 0.62) 49%, rgba(3, 2, 4, 0.12) 76%),
-    linear-gradient(0deg, var(--black), transparent 40%),
-    url("./hero-firstview-final.png") center center / cover;
+  background: url("./hero-firstview-latest.png") center center / cover;
   background-repeat: no-repeat;
   background-color: var(--black);
 }
@@ -553,6 +560,22 @@ main,
   font-weight: 950;
 }
 
+.ticket-main-cta {
+  position: relative;
+  isolation: isolate;
+}
+
+.ticket-main-cta::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 227, 154, 0.78), rgba(213, 65, 53, 0.72));
+  filter: blur(13px);
+  opacity: 0.52;
+}
+
 .profile-photo {
   min-height: 390px;
   border-radius: 8px;
@@ -600,34 +623,6 @@ main,
   text-shadow: 0 3px 24px rgba(0, 0, 0, 0.86);
 }
 
-.ticket-photo {
-  position: relative;
-  overflow: hidden;
-  margin: 22px 0 22px;
-  border: 1px solid var(--line-light);
-  border-radius: 8px;
-  background: rgba(8, 6, 10, 0.78);
-  box-shadow: var(--shadow);
-}
-
-.ticket-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, transparent 58%, rgba(3, 2, 4, 0.42)),
-    radial-gradient(circle at 80% 18%, rgba(255, 227, 154, 0.12), transparent 28%);
-}
-
-.ticket-photo img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: center 42%;
-}
-
 .map-card {
   min-height: 320px;
   overflow: hidden;
@@ -663,6 +658,21 @@ main,
 .contact-box a {
   color: var(--gold-bright);
   font-weight: 950;
+}
+
+.contact-photo {
+  margin: 24px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-radius: 8px;
+  background: rgba(3, 2, 4, 0.34);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+}
+
+.contact-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .mobile-fixed-cta {
@@ -999,6 +1009,35 @@ main,
     width: min(920px, 100%);
   }
 
+  .hero-actions {
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .hero-ticket-cta,
+  .hero-overview-cta {
+    min-height: 64px;
+    padding: 0 34px;
+    border-width: 2px;
+    font-size: 18px;
+    box-shadow:
+      0 18px 44px rgba(0, 0, 0, 0.38),
+      inset 0 1px 0 rgba(255, 247, 223, 0.28);
+  }
+
+  .hero-ticket-cta {
+    box-shadow:
+      0 18px 44px rgba(213, 65, 53, 0.44),
+      0 0 0 5px rgba(255, 227, 154, 0.08),
+      inset 0 1px 0 rgba(255, 247, 223, 0.32);
+  }
+
+  .hero-overview-cta {
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold) 58%, var(--gold-deep));
+    border-color: rgba(255, 241, 191, 0.74);
+  }
+
   .two-column {
     grid-template-columns: 0.95fr 1.05fr;
     align-items: center;
@@ -1010,6 +1049,19 @@ main,
 
   .ticket-cta {
     justify-content: space-between;
+    gap: 26px;
+    padding: 22px 28px;
+  }
+
+  .ticket-main-cta {
+    min-height: 68px;
+    padding: 0 42px;
+    border-width: 2px;
+    font-size: 19px;
+    box-shadow:
+      0 20px 46px rgba(213, 65, 53, 0.48),
+      0 0 0 6px rgba(255, 227, 154, 0.08),
+      inset 0 1px 0 rgba(255, 247, 223, 0.34);
   }
 
   .support-plan-grid {
@@ -1113,33 +1165,40 @@ main,
     white-space: nowrap;
   }
 
-  .nav .nav-cta {
+  .nav .nav-cta,
+  .nav .nav-ticket-buy {
     order: -1;
     min-height: 34px;
+  }
+
+  .nav .nav-cta {
     color: var(--black);
     background: linear-gradient(135deg, var(--gold-pale), var(--gold));
   }
 
+  .nav .nav-ticket-buy {
+    color: var(--paper);
+    background:
+      linear-gradient(135deg, rgba(255, 227, 154, 0.24), transparent 44%),
+      linear-gradient(135deg, var(--red-bright), var(--red) 52%, var(--red-deep));
+  }
+
   .hero {
     align-items: start;
-    min-height: auto;
-    padding-top: clamp(360px, 48svh, 490px);
+    min-height: 100svh;
+    padding-top: clamp(300px, 42svh, 420px);
     padding-bottom: 28px;
   }
 
   .hero-image {
-    background:
-      radial-gradient(circle at 72% 34%, rgba(255, 227, 154, 0.12), transparent 25%),
-      linear-gradient(180deg, rgba(3, 2, 4, 0.08) 0 34%, rgba(3, 2, 4, 0.34) 52%, rgba(3, 2, 4, 0.98) 78%),
-      linear-gradient(90deg, rgba(3, 2, 4, 0.72) 0 34%, rgba(3, 2, 4, 0.18) 58%, rgba(79, 14, 13, 0.16) 100%),
-      url("./hero-firstview-final.png") center 132px / auto clamp(480px, 58svh, 640px);
+    background: url("./hero-firstview-mobile-latest.png") center top / contain;
     background-repeat: no-repeat;
     background-color: var(--black);
   }
 
   .hero-content {
     width: min(100%, 430px);
-    padding: 22px 0 0;
+    padding: 8px 0 0;
   }
 
   .hero-title {
@@ -1169,11 +1228,6 @@ main,
   .access-section .section-copy h2 {
     max-width: 100%;
     font-size: clamp(28px, 7.6vw, 48px);
-  }
-
-  .ticket-photo img {
-    aspect-ratio: 4 / 5;
-    object-position: center 40%;
   }
 
   .button {
@@ -1268,7 +1322,37 @@ main,
   }
 
   .support-hero-content .hero-actions {
-    max-width: 620px;
+    max-width: 760px;
+  }
+
+  .support-hero-actions {
+    gap: 18px;
+    margin-top: 34px;
+  }
+
+  .support-menu-cta,
+  .support-goods-cta {
+    min-width: 260px;
+    min-height: 68px;
+    padding: 0 36px;
+    border-width: 2px;
+    font-size: 19px;
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.42),
+      inset 0 1px 0 rgba(255, 247, 223, 0.3);
+  }
+
+  .support-menu-cta {
+    box-shadow:
+      0 20px 50px rgba(213, 65, 53, 0.46),
+      0 0 0 6px rgba(255, 227, 154, 0.08),
+      inset 0 1px 0 rgba(255, 247, 223, 0.34);
+  }
+
+  .support-goods-cta {
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold) 58%, var(--gold-deep));
+    border-color: rgba(255, 241, 191, 0.72);
   }
 
   .mobile-fixed-cta {
@@ -1277,6 +1361,25 @@ main,
 }
 
 @media (min-width: 980px) and (max-width: 1179px) {
+  .support-hero-actions {
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .support-menu-cta,
+  .support-goods-cta {
+    min-height: 62px;
+    padding: 0 30px;
+    border-width: 2px;
+    font-size: 18px;
+  }
+
+  .support-goods-cta {
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold) 58%, var(--gold-deep));
+    border-color: rgba(255, 241, 191, 0.72);
+  }
+
   .mobile-fixed-cta {
     display: none;
   }
