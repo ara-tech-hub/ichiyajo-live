@@ -166,7 +166,7 @@ main,
 
 .hero-image {
   z-index: -3;
-  background: url("./hero-firstview-latest.png") center center / cover;
+  background: url("./hero-firstview-final-current.jpg") center center / cover;
   background-repeat: no-repeat;
   background-color: var(--black);
 }
@@ -728,8 +728,8 @@ main,
   background:
     radial-gradient(circle at 22% 22%, rgba(255, 227, 154, 0.16), transparent 26%),
     radial-gradient(circle at 82% 70%, rgba(159, 39, 34, 0.2), transparent 28%),
-    linear-gradient(90deg, rgba(3, 2, 4, 0.92) 0 32%, rgba(3, 2, 4, 0.58) 56%, rgba(3, 2, 4, 0.22) 100%),
-    linear-gradient(0deg, var(--black), transparent 44%),
+    linear-gradient(90deg, rgba(3, 2, 4, 0.5) 0 32%, rgba(3, 2, 4, 0.26) 56%, rgba(3, 2, 4, 0.08) 100%),
+    linear-gradient(0deg, rgba(3, 2, 4, 0.32), transparent 44%),
     url("./support-hero-background-final.png") center center / cover;
   background-repeat: no-repeat;
   background-color: var(--black);
@@ -739,7 +739,7 @@ main,
   z-index: -2;
   background:
     radial-gradient(circle at 16% 80%, rgba(200, 151, 45, 0.18), transparent 26%),
-    linear-gradient(0deg, var(--black), transparent 42%);
+    linear-gradient(0deg, rgba(3, 2, 4, 0.34), transparent 42%);
 }
 
 .support-hero-content {
@@ -784,34 +784,6 @@ main,
 
 .goods-heading-layout .section-heading {
   margin: 0;
-}
-
-.goods-heading-photo {
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  border: 1px solid var(--line-light);
-  border-radius: 8px;
-  background: rgba(8, 6, 10, 0.78);
-  box-shadow: var(--shadow);
-}
-
-.goods-heading-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, transparent 54%, rgba(3, 2, 4, 0.34)),
-    radial-gradient(circle at 20% 18%, rgba(255, 227, 154, 0.12), transparent 28%);
-}
-
-.goods-heading-photo img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center center;
 }
 
 .support-card,
@@ -1015,7 +987,9 @@ main,
   }
 
   .hero-ticket-cta,
+  .hero-support-cta,
   .hero-overview-cta {
+    min-width: 260px;
     min-height: 64px;
     padding: 0 34px;
     border-width: 2px;
@@ -1032,10 +1006,32 @@ main,
       inset 0 1px 0 rgba(255, 247, 223, 0.32);
   }
 
-  .hero-overview-cta {
+  .hero-support-cta {
     color: var(--black);
     background: linear-gradient(135deg, var(--gold-pale), var(--gold) 58%, var(--gold-deep));
     border-color: rgba(255, 241, 191, 0.74);
+  }
+
+  .hero-overview-cta {
+    color: var(--paper);
+    background:
+      linear-gradient(135deg, rgba(255, 227, 154, 0.24), transparent 44%),
+      linear-gradient(135deg, var(--red-bright), var(--red) 52%, var(--red-deep));
+    border-color: rgba(255, 227, 154, 0.52);
+    box-shadow:
+      0 18px 44px rgba(213, 65, 53, 0.36),
+      inset 0 1px 0 rgba(255, 247, 223, 0.26);
+  }
+
+  .access-map-cta {
+    min-height: 64px;
+    padding: 0 34px;
+    border-width: 2px;
+    font-size: 18px;
+    box-shadow:
+      0 18px 44px rgba(200, 151, 45, 0.32),
+      0 0 0 5px rgba(255, 227, 154, 0.08),
+      inset 0 1px 0 rgba(255, 247, 223, 0.36);
   }
 
   .two-column {
@@ -1102,10 +1098,6 @@ main,
 
   .support-card-ruler {
     grid-column: span 2;
-  }
-
-  .goods-heading-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
   }
 
   .goods-grid {
@@ -1191,9 +1183,29 @@ main,
   }
 
   .hero-image {
-    background: url("./hero-firstview-mobile-latest.png") center top / contain;
+    background: url("./hero-firstview-mobile-final2.png") center top / contain;
     background-repeat: no-repeat;
     background-color: var(--black);
+  }
+
+  .hero-support-cta {
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold) 58%, var(--gold-deep));
+    border-color: rgba(255, 241, 191, 0.74);
+    box-shadow:
+      0 16px 38px rgba(200, 151, 45, 0.32),
+      inset 0 1px 0 rgba(255, 247, 223, 0.32);
+  }
+
+  .hero-overview-cta {
+    color: var(--paper);
+    background:
+      linear-gradient(135deg, rgba(255, 227, 154, 0.24), transparent 44%),
+      linear-gradient(135deg, var(--red-bright), var(--red) 52%, var(--red-deep));
+    border-color: rgba(255, 227, 154, 0.52);
+    box-shadow:
+      0 16px 38px rgba(213, 65, 53, 0.34),
+      inset 0 1px 0 rgba(255, 247, 223, 0.26);
   }
 
   .hero-content {
@@ -1249,7 +1261,7 @@ main,
     background:
       radial-gradient(circle at 22% 22%, rgba(255, 227, 154, 0.16), transparent 26%),
       radial-gradient(circle at 82% 70%, rgba(159, 39, 34, 0.2), transparent 28%),
-      linear-gradient(180deg, rgba(3, 2, 4, 0.96), rgba(3, 2, 4, 0.86) 58%, rgba(3, 2, 4, 0.98) 100%);
+      linear-gradient(180deg, rgba(3, 2, 4, 0.54), rgba(3, 2, 4, 0.42) 58%, rgba(3, 2, 4, 0.62) 100%);
     background-color: var(--black);
   }
 
@@ -1277,7 +1289,7 @@ main,
     inset: 0;
     pointer-events: none;
     background:
-      linear-gradient(180deg, transparent 62%, rgba(3, 2, 4, 0.32)),
+      linear-gradient(180deg, transparent 62%, rgba(3, 2, 4, 0.12)),
       radial-gradient(circle at 18% 16%, rgba(255, 227, 154, 0.12), transparent 26%);
   }
 
@@ -1287,11 +1299,6 @@ main,
     aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: center center;
-  }
-
-  .goods-heading-photo img {
-    aspect-ratio: 16 / 11;
-    object-position: center 46%;
   }
 
   .card-topline {
