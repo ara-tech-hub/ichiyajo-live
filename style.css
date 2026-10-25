@@ -534,7 +534,7 @@ main,
   box-shadow: 0 0 24px rgba(213, 65, 53, 0.4);
   font-size: clamp(24px, 4vw, 38px);
   line-height: 1.1 !important;
-  transform: rotate(-1deg);
+  transform: none;
 }
 
 .benefit-heading {
