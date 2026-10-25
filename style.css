@@ -166,7 +166,7 @@ main,
 
 .hero-image {
   z-index: -3;
-  background: url("./hero-firstview-final-current.jpg") center center / cover;
+  background: url("./hero-firstview-desktop.png") center center / cover;
   background-repeat: no-repeat;
   background-color: var(--black);
 }
@@ -174,6 +174,7 @@ main,
 .hero-shade {
   z-index: -2;
   background:
+    linear-gradient(90deg, rgba(3, 2, 4, 0.8), rgba(3, 2, 4, 0.3) 48%, transparent 75%),
     radial-gradient(circle at 18% 32%, rgba(255, 227, 154, 0.08), transparent 28%),
     radial-gradient(circle at 82% 24%, rgba(213, 65, 53, 0.08), transparent 24%);
   mask-image: linear-gradient(180deg, transparent, black 14%, black 78%, transparent);
@@ -1305,14 +1306,34 @@ main,
   .hero {
     align-items: start;
     min-height: 100svh;
-    padding-top: clamp(300px, 42svh, 420px);
+    padding-top: 140px;
     padding-bottom: 28px;
   }
 
   .hero-image {
-    background: url("./hero-firstview-mobile-final2.png") center top / contain;
+    background: url("./hero-firstview-desktop.png") center top / cover;
+    top: 104px;
+    height: 125vw;
     background-repeat: no-repeat;
     background-color: var(--black);
+  }
+
+  .hero-shade {
+    background: linear-gradient(90deg, rgba(3, 2, 4, 0.58), transparent 82%);
+    top: 104px;
+    height: 125vw;
+    mask-image: none;
+  }
+
+  .hero-heading {
+    min-height: max(250px, calc(125vw - 36px));
+    padding-bottom: 24px;
+  }
+
+  .hero .eyebrow {
+    font-size: clamp(9px, 2.5vw, 12px);
+    padding: 7px 9px;
+    margin-bottom: 12px;
   }
 
   .hero-support-cta {
@@ -1342,12 +1363,13 @@ main,
 
   .hero-title {
     max-width: 100%;
-    font-size: clamp(38px, 12vw, 58px);
+    font-size: clamp(34px, 10vw, 58px);
     line-height: 1.02;
   }
 
   .hero-performer {
-    margin-top: 16px;
+    margin-top: clamp(88px, 24vw, 160px);
+    font-size: clamp(11px, 3vw, 16px);
   }
 
   .hero-info {
@@ -1516,5 +1538,89 @@ main,
 
   .mobile-fixed-cta {
     display: none;
+  }
+}
+
+/* Mobile first view aligned to the supplied layout reference. */
+@media (max-width: 759px) {
+  .hero {
+    padding: 0 0 28px;
+    align-items: start;
+  }
+
+  .hero-image {
+    top: 104px;
+    height: calc(104px + 106.7vw);
+    background-image: url("./hero-firstview-smartphone.png");
+    background-size: 100% auto;
+    background-position: center calc(-18.3vw);
+  }
+
+  .hero-shade {
+    top: 104px;
+    height: calc(104px + 106.7vw);
+    background: linear-gradient(90deg, rgba(3, 2, 4, 0.32), transparent 76%);
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero-heading {
+    position: relative;
+    min-height: 0;
+    height: calc(104px + 99vw);
+    padding: 0;
+  }
+
+  .hero .eyebrow {
+    position: absolute;
+    top: calc(104px + 7.8vw);
+    left: 5vw;
+    margin: 0;
+    padding: 1.1vw 1.6vw;
+    font-size: 2.35vw;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .hero .eyebrow::before {
+    width: 1.4vw;
+    height: 1.4vw;
+    margin-right: 1.4vw;
+  }
+
+  .hero-title {
+    position: absolute;
+    top: calc(104px + 16.5vw);
+    left: 5vw;
+    margin: 0;
+    width: 54vw;
+    max-width: none;
+    font-size: 10vw;
+    line-height: 1.02;
+  }
+
+  .hero-title span::after {
+    width: 37vw;
+    height: 0.9vw;
+    margin-top: 2vw;
+  }
+
+  .hero-performer {
+    position: absolute;
+    top: calc(104px + 53.6vw);
+    left: 5vw;
+    margin: 0;
+    font-size: 2.8vw;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .hero-info,
+  .hero-actions {
+    margin-left: 5vw;
+    margin-right: 5vw;
   }
 }
